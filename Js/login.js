@@ -1,9 +1,10 @@
 import { auth, signInWithEmailAndPassword } from "./firebase.js";
 
 const maxAttempts = 3; // Número máximo de tentativas
-const lockoutTime = 30 * 1000; // Tempo de bloqueio (30 segundos)
+const baseLockoutTime = 30 * 1000; // Tempo de bloqueio inicial (30 segundos)
 let attempts = parseInt(localStorage.getItem("loginAttempts")) || 0; // Garantir que a variável 'attempts' seja numérica
 let lockedUntil = localStorage.getItem("lockedUntil") || 0;
+let blockCount = parseInt(localStorage.getItem("blockCount")) || 0; // Contador de bloqueios
 
 const loginForm = document.getElementById("loginForm");
 const loginButton = document.getElementById("loginButton");
@@ -28,8 +29,14 @@ loginForm.addEventListener("submit", function(event) {
     event.preventDefault(); // Impede envio real do formulário
 
     if (attempts >= maxAttempts) {
-        lockedUntil = Date.now() + lockoutTime;
+        // Aumenta o tempo de bloqueio com base no número de bloqueios anteriores
+        const lockoutMultiplier = blockCount + 1; // O multiplicador aumenta a cada bloqueio
+        const newLockoutTime = baseLockoutTime * lockoutMultiplier; // Tempo de bloqueio multiplicado
+
+        lockedUntil = Date.now() + newLockoutTime;
         localStorage.setItem("lockedUntil", lockedUntil);
+        blockCount++;
+        localStorage.setItem("blockCount", blockCount); // Armazena o número de bloqueios
         checkLockout();
         return;
     }
@@ -40,6 +47,7 @@ loginForm.addEventListener("submit", function(event) {
     // 🔐 Tenta fazer login com Firebase Authentication
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+            alert("Login bem-sucedido! ✅"); // Alerta de sucesso
             console.log(userCredential.user);
             localStorage.removeItem("loginAttempts"); // Reseta as tentativas ao logar com sucesso
             window.location.href = "End.html"; // Redireciona para outra página após login
@@ -50,8 +58,13 @@ loginForm.addEventListener("submit", function(event) {
             localStorage.setItem("loginAttempts", attempts); // Atualiza as tentativas no localStorage
 
             if (attempts >= maxAttempts) {
-                lockedUntil = Date.now() + lockoutTime;
+                // Aumenta o número de tentativas e configura o bloqueio
+                const lockoutMultiplier = blockCount + 1; // Multiplicador baseado no número de bloqueios
+                const newLockoutTime = baseLockoutTime * lockoutMultiplier; // Tempo de bloqueio multiplicado
+                lockedUntil = Date.now() + newLockoutTime;
                 localStorage.setItem("lockedUntil", lockedUntil);
+                blockCount++;
+                localStorage.setItem("blockCount", blockCount); // Armazena o número de bloqueios
                 checkLockout();
             } else {
                 errorMessage.textContent = `Tentativa ${attempts}/${maxAttempts} falhou.`;
