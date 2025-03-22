@@ -1,0 +1,43 @@
+/* Configurações */
+:root {
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0;
+    background-color: #69BFA0;
+}
+
+/* Section principal */
+
+.PaginaInicial{
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.PaginaInicial .imgPrincipal img{
+    width: 35rem;
+}
+
+.PaginaInicial .Textos h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+.PaginaInicial .Textos button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: bolder;
+    font-size: 2rem;
+    border: none;
+    background-color: #EEF2F1;
+    color: #69BFA0;
+    width: 35rem;
+    height: 5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
