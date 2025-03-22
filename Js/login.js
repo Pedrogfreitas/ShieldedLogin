@@ -1,3 +1,5 @@
+import { auth, signInWithEmailAndPassword } from "./firebase.js";
+
 const maxAttempts = 3; // Número máximo de tentativas
 const lockoutTime = 30 * 1000; // Tempo de bloqueio (30 segundos)
 let attempts = localStorage.getItem("loginAttempts") || 0;
@@ -23,7 +25,7 @@ function checkLockout() {
 checkLockout(); // Verifica se o usuário está bloqueado ao carregar a página
 
 loginForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Impede envio real do formulário (simulação)
+    event.preventDefault(); // Impede envio real do formulário
 
     if (attempts >= maxAttempts) {
         lockedUntil = Date.now() + lockoutTime;
@@ -35,19 +37,25 @@ loginForm.addEventListener("submit", function(event) {
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
 
-    // Simula falha de login (substitua por autenticação real no backend)
-    const loginFailed = true;
+    // 🔐 Tenta fazer login com Firebase Authentication
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            alert("Login bem-sucedido! ✅");
+            console.log(userCredential.user);
+            localStorage.removeItem("loginAttempts"); // Reseta as tentativas ao logar com sucesso
+            window.location.href = "dashboard.html"; // Redireciona para outra página após login
+        })
+        .catch((error) => {
+            console.error(error);
+            attempts++;
+            localStorage.setItem("loginAttempts", attempts);
 
-    if (loginFailed) {
-        attempts++;
-        localStorage.setItem("loginAttempts", attempts);
-
-        if (attempts >= maxAttempts) {
-            lockedUntil = Date.now() + lockoutTime;
-            localStorage.setItem("lockedUntil", lockedUntil);
-            checkLockout();
-        } else {
-            errorMessage.textContent = `Tentativa ${attempts}/${maxAttempts} falhou.`;
-        }
-    }
+            if (attempts >= maxAttempts) {
+                lockedUntil = Date.now() + lockoutTime;
+                localStorage.setItem("lockedUntil", lockedUntil);
+                checkLockout();
+            } else {
+                errorMessage.textContent = `Tentativa ${attempts}/${maxAttempts} falhou.`;
+            }
+        });
 });
