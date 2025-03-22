@@ -2,7 +2,7 @@ import { auth, signInWithEmailAndPassword } from "./firebase.js";
 
 const maxAttempts = 3; // Número máximo de tentativas
 const lockoutTime = 30 * 1000; // Tempo de bloqueio (30 segundos)
-let attempts = localStorage.getItem("loginAttempts") || 0;
+let attempts = parseInt(localStorage.getItem("loginAttempts")) || 0; // Garantir que a variável 'attempts' seja numérica
 let lockedUntil = localStorage.getItem("lockedUntil") || 0;
 
 const loginForm = document.getElementById("loginForm");
@@ -40,15 +40,14 @@ loginForm.addEventListener("submit", function(event) {
     // 🔐 Tenta fazer login com Firebase Authentication
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            alert("Login bem-sucedido! ✅");
             console.log(userCredential.user);
             localStorage.removeItem("loginAttempts"); // Reseta as tentativas ao logar com sucesso
-            window.location.href = "dashboard.html"; // Redireciona para outra página após login
+            window.location.href = "End.html"; // Redireciona para outra página após login
         })
         .catch((error) => {
             console.error(error);
             attempts++;
-            localStorage.setItem("loginAttempts", attempts);
+            localStorage.setItem("loginAttempts", attempts); // Atualiza as tentativas no localStorage
 
             if (attempts >= maxAttempts) {
                 lockedUntil = Date.now() + lockoutTime;

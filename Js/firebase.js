@@ -1,6 +1,8 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// firebase.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+// Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyAFU_1WyzHofBj8euSoukYUuKrQ6a78Ek8",
   authDomain: "shieldedlogin.firebaseapp.com",
@@ -11,7 +13,8 @@ const firebaseConfig = {
   measurementId: "G-FT23JHMN69"
 };
 
+// Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
-export { auth, signInWithEmailAndPassword };
+export { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword };

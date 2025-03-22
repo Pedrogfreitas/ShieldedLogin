@@ -1,23 +1,24 @@
-import { auth } from "./firebase.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { auth, createUserWithEmailAndPassword } from "./firebase.js";
 
 const signupForm = document.getElementById("signupForm");
 
 signupForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita recarregar a página
+    event.preventDefault(); // Impede o envio tradicional do formulário
 
     const email = document.getElementById("signupEmail").value;
     const password = document.getElementById("signupPassword").value;
 
-    // 🔐 Cria o usuário no Firebase Authentication
+    // Tenta criar o usuário no Firebase
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+            // Cadastro realizado com sucesso
             alert("Cadastro realizado com sucesso! ✅");
-            console.log(userCredential.user);
-            window.location.href = "Login.html"; // Redireciona para login após cadastro
+            console.log("Usuário cadastrado:", userCredential.user);
+            window.location.href = "Login.html"; // Redireciona para a página de login
         })
         .catch((error) => {
-            console.error(error);
+            // Exibe erro caso falhe
+            console.error("Erro ao cadastrar:", error.message);
             alert("Erro ao cadastrar: " + error.message);
         });
 });
