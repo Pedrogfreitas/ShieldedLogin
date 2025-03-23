@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,19 @@
     <form id="loginForm">
         <input type="email" id="loginEmail" placeholder="Digite seu e-mail" required>
         <input type="password" id="loginPassword" placeholder="Digite sua senha" required>
-         
+
+        <!-- Container do reCAPTCHA -->
+        <div id="recaptcha-container"></div>
+
         <button type="submit" id="loginButton">Entrar</button>
-        <div id="error-message"></div>
+        <div id="error-message" style="color: red; margin-top: 10px;"></div>
     </form>
 
-    <a href="./Cadastro.html">Forma temporária para ir pro cadastro</a><br>
-    <a href="../index.html">Forma temporária para ir pra página inicial</a>
+    <a href="./Cadastro.html">Ir para Cadastro</a><br>
+    <a href="../index.html">Ir para Página Inicial</a>
 
+    <!-- Importação dos scripts do Firebase e Login -->
     <script type="module" src="../Js/firebase.js"></script>
     <script type="module" src="../Js/login.js"></script>
-    
 </body>
 </html>
