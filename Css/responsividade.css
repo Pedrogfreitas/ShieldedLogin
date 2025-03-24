@@ -1,0 +1,22 @@
+@media(min-width: 130px) and (max-width: 720px){
+    /* Pagina inicial */
+    .PaginaInicial{
+        display: inline-block;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .PaginaInicial .imgPrincipal img{
+        width: 30rem;
+    }
+
+    .PaginaInicial .Textos h1{
+        font-size: 1.5rem;
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+
+    .PaginaInicial .Textos button{
+        width: 20rem;
+    }
+}

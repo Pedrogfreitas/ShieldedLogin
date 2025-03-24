@@ -40,4 +40,10 @@ body{
     height: 5rem;
     border-radius: 1rem;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.PaginaInicial .Textos button:hover{
+    background-color: #69BFA0;
+    color: #EEF2F1;
 }
