@@ -24,6 +24,12 @@
     }
 
     /* Pagina de Login  */
+    .FormLogin{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
     .NomeGrande{
         padding: 2rem;
     }
@@ -89,5 +95,12 @@
 
     .ImagemGrandeDoMeio .Nav a{
         font-size: 1.5rem;
+    }
+
+    .GrandeDeQuadros{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 }
