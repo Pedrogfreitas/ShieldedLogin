@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- link da fonte -->
+    <!-- Link da fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,9 +12,9 @@
       rel="stylesheet"
     />
 
-    <!-- link de estilos -->
+    <!-- Link de estilos -->
     <link rel="stylesheet" href="./Css/index.css" />
-    <link rel="stylesheet" href="./Css/responsividade.css">
+    <link rel="stylesheet" href="./Css/responsividade.css" />
     <link
       rel="icon"
       type="image/png"
@@ -30,10 +30,23 @@
       </div>
       <div class="Textos">
         <h1>Tudo pronto para iniciar</h1>
-        <a href="./PaginasDeLoginECadastro/Login.html">
-          <button>INICIAR</button>
+        <div 
+          class="g-recaptcha" 
+          id="recaptcha" 
+          data-sitekey="6LfCSfwqAAAAAJcVd8_mXAPR6hFc2LQkdwKRP81C" 
+          data-callback="enableButton">
+        </div><br><br><br>
+        <a style="text-decoration: none;" href="./PaginasDeLoginECadastro/Login.html">
+          <button id="startButton" style="display: none;">INICIAR</button>
         </a>
       </div>
     </section>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      function enableButton() {
+        document.getElementById("startButton").style.display = "block";
+      }
+    </script>
   </body>
 </html>
