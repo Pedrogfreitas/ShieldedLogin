@@ -24,6 +24,10 @@ header .texto h1{
     color: #ffffff;
 }
 
+header .texto a{
+    text-decoration: none;
+}
+
 header .icone img{
     width: 3rem;
 }
