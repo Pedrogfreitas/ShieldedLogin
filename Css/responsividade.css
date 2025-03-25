@@ -1,0 +1,106 @@
+@media(min-width: 130px) and (max-width: 720px){
+    /* Pagina inicial */
+    .PaginaInicial{
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .PaginaInicial .imgPrincipal img{
+        width: 25rem;
+    }
+
+    .PaginaInicial .Textos h1{
+        font-size: 1.5rem;
+        color: #ffffff;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .PaginaInicial .Textos button{
+        width: 20rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Pagina de Login  */
+    .FormLogin{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .NomeGrande{
+        padding: 2rem;
+    }
+    
+    .NomeGrande .Textos h1{
+        font-size: 6rem;
+    }
+
+    .NomeGrande .Textos h2{
+        font-size: 1.5rem;
+    }
+
+    .FormLogin .TituloForms h1{
+        font-size: 6rem;
+        padding: 5rem 2rem 0;
+    }
+
+    .FormLogin #loginForm input{
+        width: 25rem;
+    }
+
+    .FormLogin #loginForm .IrProCadastro a h1{
+        font-size: 1rem;
+    }
+
+    /* pagina de cadastro */
+    .FormsCadastro .Titulo h1{
+        font-size: 5rem;
+        padding: 0rem 2rem 0;
+    }
+
+    .FormsCadastro .VoltarAoLogin h1{
+        font-size: 1.5rem;
+        padding: 2rem 2.5rem 1rem ;
+    }
+
+    .FormsCadastro #signupForm input{
+        width: 25rem;
+    }
+
+    /* pagina end  */
+    header .texto h1{
+        font-size: 2rem;
+    }
+    
+
+    .ImagemGrandeDoMeio{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ImagemGrandeDoMeio .QuadroBranco{
+        width: 25rem;
+        height: 20rem;
+        margin: auto;
+    }
+
+    .ImagemGrandeDoMeio .Nav{
+        padding: 2rem 0 0;
+    }
+
+    .ImagemGrandeDoMeio .Nav a{
+        font-size: 1.5rem;
+    }
+
+    .GrandeDeQuadros{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}

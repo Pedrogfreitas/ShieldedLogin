@@ -1,21 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form id="signupForm">
-        <input type="email" id="signupEmail" placeholder="Digite seu e-mail" required>
-        <input type="password" id="signupPassword" placeholder="Digite sua senha" required>
-        <button type="submit">Cadastrar</button>
-      </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <a href="./Login.html">
-        Forma temporaria para ir pro login
-    </a>
+    <!-- link da fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- links de estilo -->
+    <link rel="stylesheet" href="../Css/PaginaDeCadastro.css" />
+    <link rel="stylesheet" href="../Css/responsividade.css">
+
+    <link
+    rel="icon"
+    type="image/png"
+    href="../Assents/PaginaInicial/Ellipse 8.png"
+  />
+
+  <title>ShieldNet</title>
+  </head>
+  <body>
+
+    <Section class="FormsCadastro">
+
+        <div class="VoltarAoLogin">
+            <a href="./Login.html">
+                <h1>← Voltar ao Login</h1>
+            </a>
+        </div>
+
+        <div class="Titulo">
+            <h1>Cadastro</h1>
+        </div>
+        <form id="signupForm">
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Digite seu e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Digite sua senha"
+            required
+          />
+          <button type="submit">Cadastrar</button>
+        </form>
+    </Section>
     <script type="module" src="../Js/signup.js"></script>
-</body>
+  </body>
 </html>
