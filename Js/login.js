@@ -49,7 +49,7 @@ loginForm.addEventListener("submit", function(event) {
         .then((userCredential) => {
             alert("Login bem-sucedido! ✅"); // Alerta de sucesso
             console.log(userCredential.user);
-            localStorage.removeItem("loginAttempts"); // Reseta as tentativas ao logar com sucesso
+            // localStorage.removeItem("loginAttempts"); // Reseta as tentativas ao logar com sucesso
             window.location.href = "End.html"; // Redireciona para outra página após login
         })
         .catch((error) => {
