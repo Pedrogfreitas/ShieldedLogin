@@ -1,27 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <form id="loginForm">
-        <input type="email" id="loginEmail" placeholder="Digite seu e-mail" required>
-        <input type="password" id="loginPassword" placeholder="Digite sua senha" required>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- link da fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- links de estilo -->
+    <link rel="stylesheet" href="../Css/PaginaDeLogin.css" />
+    <link rel="stylesheet" href="../Css/responsividade.css">
+
+    <link
+    rel="icon"
+    type="image/png"
+    href="../Assents/PaginaInicial/Ellipse 8.png"
+  />
+
+  <title>ShieldNet</title>
+  </head>
+  <body>
+    <section class="NomeGrande">
+      <div class="Textos">
+        <h1>Olá!</h1>
+        <h2>Seja bem vindo ao ShieldNet</h2>
+      </div>
+    </section>
+
+    <section class="FormLogin">
+      <div class="TituloForms">
+        <h1>Login</h1>
+      </div>
+
+      <form id="loginForm">
+        <input
+          type="email"
+          id="loginEmail"
+          placeholder="Digite seu E-mail"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Digite sua senha"
+          required
+        />
 
         <!-- Container do reCAPTCHA -->
         <div id="recaptcha-container"></div>
 
-        <button type="submit" id="loginButton">Entrar</button>
-        <div id="error-message" style="color: red; margin-top: 10px;"></div>
-    </form>
+        <button type="submit" id="loginButton">Login</button>
 
-    <a href="./Cadastro.html">Ir para Cadastro</a><br>
-    <a href="../index.html">Ir para Página Inicial</a>
+        <div class="IrProCadastro">
+          <a href="./Cadastro.html">
+            <h1>Não tem uma conta? Clique aqui e faça agora mesmo!</h1>
+          </a>
+        </div>
+
+        <div id="error-message" style="color: red; margin-top: 10px"></div>
+      </form>
+    </section>
 
     <!-- Importação dos scripts do Firebase e Login -->
     <script type="module" src="../Js/firebase.js"></script>
     <script type="module" src="../Js/login.js"></script>
-</body>
+  </body>
 </html>
